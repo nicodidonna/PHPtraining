@@ -471,4 +471,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         
 */    
+    
+//LEZIONE 19 = COSA SONO I COOKIES
+
+/*
+
+setcookie("username", "Nico Didonna", time()+60*60*24*30); //salvare un coockie: setcookie(name,value,expire,domain,path,secure), gli ultimi tre possono essere lasciati di default
+
+if(isset($_COOKIE['username'])){
+    echo $_COOKIE['username'];
+}else{
+    echo "Nessun cookie disponibile";
+}
+
+setcookie("username", "", time()-3600); //per eliminare un cookie bisogna settarlo con un expire al passato 
+
+*/
+
+
 ?>
