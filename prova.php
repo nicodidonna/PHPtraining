@@ -399,5 +399,30 @@ if(file_exists($nomeFile)){ //verifica che la cartella non esista già
     echo "Il file non esiste"."<br>";
 }
 
+function mostraFile($path){
+    if(file_exists($path) && is_dir($path)){
+        $result = scandir($path);
+
+        $files = array_diff($result, array(".",".."));
+        print_r($files);
+
+        if(count($files) > 0){
+            foreach($files as $file){
+                if(is_file("$path/$file")){
+                    echo $file."<br>";
+                } else if(is_dir("$path/$file")){
+                    mostraFile("$path/$file");
+                }
+            }
+        } else{
+            echo "Errore: Non sono stati trovati file in questa cartella";
+        }
+    }   else{
+            echo "Errore: la cartella non esiste";
+    }
+}
+
+mostraFile("extra");
+
 
 ?>
