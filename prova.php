@@ -488,5 +488,21 @@ setcookie("username", "", time()-3600); //per eliminare un cookie bisogna settar
 
 */
 
+//LEZIONE 20 = CREARE ED USARE LE SESSIONI IN PHP
+
+/*
+
+session_start(); //cominciare una sessione
+
+//salvare ed accedere ai dati della sessione
+$_SESSION['user_id'] = 23;
+echo $_SESSION['user_id'];
+
+unset($_SESSION['user_id']); //rimuovere dati di una sessione
+
+session_destroy(); //distruggere una sessione
+
+*/
+
 
 ?>
