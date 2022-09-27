@@ -375,6 +375,8 @@ fclose($file); //fclose = file close
 
 //LEZIONE 17 = GESTIRE LE CARTELLE
 
+/*
+
 $nome_cartella = "testCartella";
 $nomeFile = "nuovaNota.txt";
 $nuovoFile = $nome_cartella."/".$nomeFile;
@@ -423,6 +425,14 @@ function mostraFile($path){
 }
 
 mostraFile("extra");
+
+$filess = glob("extra/*.txt");
+foreach($filess as $file){
+    echo basename($file)." (size: ".filesize($file)." bytes)"."<br>";
+}
+
+*/
+
 
 
 ?>
