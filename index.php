@@ -42,6 +42,14 @@
         <input type="submit" value="Invia modulo">
     </form>
 
+    <form action="prova.php" method="post" enctype="multipart/form-data">
+        <h2>Carica File</h2>
+        <label for="fileSelect">File</label>
+        <input type="file" name="photo" id="fileSelect">
+        <input type="submit" value="Carica">
+        <p><strong>Nota</strong>Sono accettati solo i formati .jpg , .jpeg , .gif , .png con una size massima di 5mb
+    </form>
+
     <?php funzione_esterna(); ?>
 
 
