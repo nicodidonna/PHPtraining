@@ -1,0 +1,49 @@
+<?php require 'prova.php'?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Inizio</title>
+</head>
+<body>
+    <?php include 'header.html'?>
+    <h1>Form Esempio</h1>
+
+    <form method="post" action="prova.php">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Inserisci Nome">
+        <label for="cognome">Cognome</label>
+        <input type="text" id="cognome" name="cognome" placeholder="Inserisci Cognome">
+        <input type="submit" value="Invia dati">
+    </form>
+    <?php $numero_acaso = 21?>
+    <?php if($numero_acaso >= 5 && $numero_acaso <= 10):?>
+    <h3>Il numero a caso è compreso tra 5 e 10</h3>
+    <?php elseif($numero_acaso < 20):?>
+    <h3>Il numero a caso è minore di 20</h3>
+    <?php else:?>
+    <h3>Il numero a caso non è compreso tra 5 e 10 ed è maggiore di 20</h3>
+    <?php endif;?>
+
+    <ul>
+        <?php for ($i=0; $i < 5; $i++) :?>
+            <li>Numero contatore : <?php echo $i ?></li>
+            <?php endfor; ?>
+    </ul>
+
+    <form method="get" action="prova.php">
+        <h2>COMPILA IL MODULO</h2>
+        <label for="marca">Marca Auto</label>
+        <input type="text" name="marca" id="marca">
+        <label for="modello">Modello Auto</label>
+        <input type="text" name="modello" id="modello">
+        <input type="submit" value="Invia modulo">
+    </form>
+
+    <?php funzione_esterna(); ?>
+
+
+</body>
+</html>
