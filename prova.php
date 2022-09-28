@@ -504,5 +504,40 @@ session_destroy(); //distruggere una sessione
 
 */
 
+//LEZIONE 21 = INVIARE MAIL (c'è bisogno di installare un server SMTP)
+
+/*
+
+//mail solo testo
+$to = "nico_didonna@yahoo.it";
+$subject = "PHO MAIL TEST";
+$message = "Email inviata da Nico tramite codice PHP";
+
+if(mail($to, $subject, $message)){ //funzione per inviare la mail : mail(to, subject, message, headers, parameters)
+    echo "La mail è stata inviata con successo";
+}else{
+    echo "Errore durante l'invio della mail";
+}
+
+//mail HTML
+$to1 = "nico_didonna@yahoo.it";
+$subject1 = "PHO MAIL TEST";
+$from = "emailproveniente@gmail.com";
+$headers = 'MIME-Version 1.0'."\r\n";
+$headers .= "Content-type: text/html; charset=Iso-8859-1"."\r\n";
+$headers .= "from: ".$from."\r\n";
+$message = "<html><body>";
+$message .= "<h1 style='color:blue;'>Titolo della nostra mail<h1>";
+$message .= "</body></html>";
+
+if(mail($to, $subject, $message, $headers)){ //funzione per inviare la mail : mail(to, subject, message, headers, parameters)
+    echo "La mail è stata inviata con successo";
+}else{
+    echo "Errore durante l'invio della mail";
+}
+
+*/
+
+
 
 ?>
