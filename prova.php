@@ -550,6 +550,48 @@ echo json_encode($array);
 
 */
 
-//LEZIONE 23 = PROGRAMMAZIONE ORIENTATA AD OGGETTI
+//LEZIONE 23-24 = PROGRAMMAZIONE ORIENTATA AD OGGETTI - LE CLASSI IN PHP
 
+/*
+
+//public = Si può accedere alla proprietà o al metodo da ovunque (default)
+//protected = Si può accedere alla proprietà o al metodo solo dalla stessa classe o classi figlie
+//private = Si può accedere alla proprietà o al metodo solo dalla stessa classe e basta
+
+class Persona{
+    //Proprietà
+    public $nome;
+    public $cognome;
+    protected $eta;
+    public $telefono;
+
+    //Costruttore
+    function __construct($nome, $cognome){
+        $this->nome = $nome;
+        $this->cognome = $cognome;
+    }
+
+    //Metodi
+    function saluta(){
+        echo "Ciao sono $this->nome $this->cognome"."<br>";
+    }
+
+    //Getters e Setters
+    function get_eta(){
+        return $this->eta;
+    }
+
+    function set_eta($eta){
+        $this->eta = $eta;
+    }
+}
+
+$persona1 = new Persona("Luigi","Didonna"); //creo istanza dell'oggetto persona
+$persona1->nome = "Nico"; //modifico nome persona1
+$persona1->set_eta(22); //modifico eta persona1 con setter
+$persona1->saluta(); //richiamo metodo di persona1
+var_dump($persona1); //mostro a schermo persona1
+echo($persona1->get_eta()); //mostro a schermo eta di persona1 con getter
+
+*/
 ?>
