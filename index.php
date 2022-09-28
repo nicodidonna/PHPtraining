@@ -1,6 +1,5 @@
 <?php require 'prova.php'?>
-<!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,6 +48,18 @@
         <input type="submit" value="Carica">
         <p><strong>Nota</strong>Sono accettati solo i formati .jpg , .jpeg , .gif , .png con una size massima di 5mb
     </form>
+
+    <script>
+        let formData = new FormData();
+        formData.append('data','pokedex');
+
+        fetch('prova.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => console.log(data));
+    </script>
 
     <?php funzione_esterna(); ?>
 

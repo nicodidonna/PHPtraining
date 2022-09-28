@@ -538,6 +538,18 @@ if(mail($to, $subject, $message, $headers)){ //funzione per inviare la mail : ma
 
 */
 
+//LEZIONE 22 = USARE JSON IN PHP
 
+/*
+
+$richiesta = $_POST["data"];
+$strJsonFileContents = file_get_contents($richiesta.".json");
+$array = json_decode($strJsonFileContents, true);
+// echo '<pre>'. var_export($array, true).'</pre>';
+echo json_encode($array);
+
+*/
+
+//LEZIONE 23 = PROGRAMMAZIONE ORIENTATA AD OGGETTI
 
 ?>
