@@ -634,4 +634,38 @@ $persona1 = new Persona("Nico","Didonna");
 $persona1->saluta();
 
 */
+
+//LEZIONE 26 = LE CLASSI ASTRATTE
+
+/*
+
+abstract class Persona{
+    public $nome;
+    public $cognome;
+
+    public function __construct($nome, $cognome){
+        $this->nome = $nome;
+        $this->cognome = $cognome;
+    }
+
+    abstract public function saluta(); //metodo abrstract che deve essere obbligatoriamente portato anche nelle sue classi figlie
+}
+
+class Insegnante extends Persona{
+    public $materia;
+
+    public function __construct($nome, $cognome, $materia){
+        $this->nome = $nome;
+        $this->cognome = $cognome;
+        $this->materia = $materia;
+    }
+
+    public function saluta(){
+        echo "Buongiorno, sono ".$this->nome." ".$this->cognome." ed insegno ".$this->materia;
+    }
+}
+
+*/
+
+//LEZIONE 27 = LE INTERFACCE IN PHP
 ?>
