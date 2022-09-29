@@ -668,4 +668,51 @@ class Insegnante extends Persona{
 */
 
 //LEZIONE 27 = LE INTERFACCE IN PHP
+
+/*
+
+//Differenze tra classi astratte e interfacce
+//-interfacce non hanno le proprietà
+//-i metodi delle interfacce devono essere tutti pubblici
+//-tutti i i metodi delle interfacce sono astratti quindi non serve la parola abstract
+//-delle classi possono esterndere altre classi e implementare delle interfacce allo stesso tempo
+
+interface entita{
+    public function cade_a_terra();
+}
+
+abstract class Persona{
+    public $nome;
+    public $cognome;
+
+    public function __construct($nome, $cognome){
+        $this->nome = $nome;
+        $this->cognome = $cognome;
+    }
+
+    abstract function saluta($nome, $cognome);
+}
+
+class Insegnante extends Persona implements entita{
+    public $materia;
+
+    public function __construct($nome, $cognome, $materia){
+        $this->nome = $nome;
+        $this->cognome = $cognome;
+        $this->materia = $materia;
+    }
+
+    public function saluta($nome, $cognome, $materia = "Storia"){
+        echo "Buongiorno, sono ".$this->nome." ".$this->cognome." ed insegno ".$this->materia;
+    }
+
+    public function cade_a_terra()
+    {
+        echo "TOOONFF!!!";   
+    }
+}
+
+*/
+
+
 ?>
