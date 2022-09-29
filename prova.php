@@ -594,4 +594,44 @@ var_dump($persona1); //mostro a schermo persona1
 echo($persona1->get_eta()); //mostro a schermo eta di persona1 con getter
 
 */
+
+//LEZIONE 25 = EREDITARIETA' DELLE CLASSI
+
+/*
+
+class Persona{
+    public $nome;
+    public $cognome;
+
+    public function __construct($nome, $cognome){
+        $this->nome = $nome;
+        $this->cognome = $cognome;
+    }
+
+    public function saluta(){
+        echo "Ciao, sono ".$this->nome." ".$this->cognome;
+    }
+}
+
+class Insegnante extends Persona{
+    public $materia;
+
+    public function __construct($nome, $cognome, $materia){
+        $this->nome = $nome;
+        $this->cognome = $cognome;
+        $this->materia = $materia;
+    }
+
+    public function saluta(){
+        echo "Buongiorno, sono ".$this->nome." ".$this->cognome." ed insegno ".$this->materia;
+    }
+}
+
+$insegnante1 = new Insegnante("Anna","Rossi","Italiano");
+$insegnante1->saluta();
+
+$persona1 = new Persona("Nico","Didonna");
+$persona1->saluta();
+
+*/
 ?>
