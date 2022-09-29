@@ -714,5 +714,35 @@ class Insegnante extends Persona implements entita{
 
 */
 
+//LEZIONE 28 = PROPRIETA' E METODI STATICI
+
+/*
+
+//-Sono elementi che possono essere chiamati direttamente senza creare un'istanza class:elemento
+//-Si dichiarano con la parola static
+//-Sono legati alla classe e non alle istanze
+
+class Persona{
+    static $conteggio = 0;
+    public $nome;
+    public $cognome;
+
+    function __construct($nome, $cognome){
+        $this->nome = $nome;
+        $this->cognome = $cognome;
+        Persona::$conteggio++;
+    }
+
+    static function prova(){
+    }
+}
+
+echo Persona::$conteggio . "<br>";
+$persona1 = new Persona("Luca","Rossi");
+echo Persona::$conteggio . "<br>";
+$persona1 = new Persona("Marco","Verdi");
+echo Persona::$conteggio . "<br>";
+
+*/
 
 ?>
