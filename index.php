@@ -66,6 +66,7 @@
     <?php //funzione_esterna(); ?>
 
     </div>
+    <?php require "footer.html" ?>
     <script>
     window.__PUBLIC_PATH__ = './bootstrap-italia/fonts';
     </script>
