@@ -437,54 +437,67 @@ foreach($filess as $file){
 
 /*
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    IF(isset($_FILES["photo"]) && $_FILES['photo']['error'] == 0){
-        $estensioni_permesse = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
-        $nome_file = $_FILES['photo']['name'];
-        $tipo_file = $_FILES['photo']['type'];
-        $dimensione_file = $_FILES['photo']['size'];
+if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-        //Verifichiamo estensione del file
-        $estensione = pathinfo($nome_file, PATHINFO_EXTENSION);
-        if(!array_key_exists($estensione, $estensioni_permesse)) die("Errore: Seleziona un fomato valido");
+    $upload_path = "assets/";
+    $filename = basename($_FILES['file']['name']);
+    $target_file = $upload_path.$filename;
+    $check = true;
+    $output = "";
 
-        //Verifichiamo la grandezza massima di 5mb
-        $dimensione_massima = 5*1024*1024;
-        if($dimensione_file > $dimensione_massima) die("Errore: La grandezza è superiore al limite di 5mb");
+    if(file_exists($target_file)){
+        $check = false;
+        $output = "Il file esiste già!";
+    }
 
-        //Verifichiamo il tipo MIME
-        if(in_array($tipo_file, $estensioni_permesse)){
-            //Controlalre se il file esiste già
-            if(file_exists("upload/".$nome_file)){
-                echo $nome_file." esiste già";
-            }else{
-                move_uploaded_file($_FILES['photo']["tmp_name"],"upload/".$nome_file);
-                echo "Il tuo file è stato caricato con successo";
-            } 
-        }   else {
-                echo "Errore: C'è stato un problema con il caricamento del tuo file, riprova";
+    if($_FILES['file']['size']>2000000){
+        $check = false;
+        $output = "File troppo grande! (Max 2MB)";
+    }
+
+    $estensione = strtoupper(pathinfo($target_file, PATHINFO_EXTENSION));
+    if($estensione != "PDF" && $estensione != "PNG"){
+        $check = false;
+        $output = "Estensione non valida! (Solo PDF o PNG)";
+    }
+
+    if($check == true){
+
+        if(move_uploaded_file($_FILES['file']['tmp_name'],$target_file)){
+            echo "File caricato con successo!";  
+        }else{
+            echo "Upload Fallito!";
         }
-            } else {
-                echo "Errore: ".$_FILES['photo']['error'];
-            }
-        }
-        
-        
+
+    }else{
+        echo "Il check del file è fallito";
+    }
+
+}
+
 */    
-    
+
 //LEZIONE 19 = COSA SONO I COOKIES
 
 /*
 
-setcookie("username", "Nico Didonna", time()+60*60*24*30); //salvare un coockie: setcookie(name,value,expire,domain,path,secure), gli ultimi tre possono essere lasciati di default
+//setcookie("username", "Nico Didonna", time()+60*60*24*30); //salvare un coockie: setcookie(name,value,expire,domain,path,secure), gli ultimi tre possono essere lasciati di default
 
-if(isset($_COOKIE['username'])){
-    echo $_COOKIE['username'];
+if(isset($_COOKIE['test'])){
+    echo "Hai visualizzato questa pagina il ".$_COOKIE['test'];
+    echo "<a href='?remove=true'>cancella cookie</a>";
 }else{
-    echo "Nessun cookie disponibile";
+    echo "Benvenuto!";
+    setcookie("test", date('d M Y H:i:s'), time()+86400 * 365);
 }
 
-setcookie("username", "", time()-3600); //per eliminare un cookie bisogna settarlo con un expire al passato 
+if(isset($_GET['remove'])){
+    setcookie("test","",time()-3600);
+    echo "??";
+    header("location: /PHPtraining/prova.php");
+}
+
+//setcookie("username", "", time()-3600); //per eliminare un cookie bisogna settarlo con un expire al passato 
 
 */
 
@@ -501,6 +514,25 @@ echo $_SESSION['user_id'];
 unset($_SESSION['user_id']); //rimuovere dati di una sessione
 
 session_destroy(); //distruggere una sessione
+
+*/
+
+/*
+   //ESEMPIO DI USO DI SESSIONE
+
+session_start();
+
+if(isset($_SESSION['id'])){
+    echo "Benvenuto nella pagina nascosta ".$_SESSION['id']."<br>";
+?>
+<form action="logout.php" method="post"><input type="submit" value="Logout"></form>
+<?php
+}else{
+    echo "Non hai accesso a questa pagina <br>";
+    ?>
+    <form action="login.php" method="post"><input type="submit" value="Login"></form>
+    <?php
+}
 
 */
 
@@ -744,5 +776,7 @@ $persona1 = new Persona("Marco","Verdi");
 echo Persona::$conteggio . "<br>";
 
 */
+
+
 
 ?>
